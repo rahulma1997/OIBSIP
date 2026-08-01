@@ -6,32 +6,22 @@ font-family:Poppins,sans-serif;
 }
 
 body{
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-min-height:100vh;
-
-background:linear-gradient(135deg,#667eea,#764ba2);
-
-padding:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    background:linear-gradient(135deg,#667eea,#764ba2);
+    padding:15px;
 }
 
 .main{
-
- width:min(95vw,420px);
-max-width:360px;
-
-background:rgba(255,255,255,.15);
-
-backdrop-filter:blur(20px);
-
-padding:25px;
-
-border-radius:25px;
-
-box-shadow:0 20px 40px rgba(0,0,0,.25);
+    width:100%;
+    max-width:420px;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(20px);
+    padding:25px;
+    border-radius:25px;
+    box-shadow:0 20px 40px rgba(0,0,0,.25);
 }
 
 #res{
