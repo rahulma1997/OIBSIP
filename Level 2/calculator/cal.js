@@ -6,15 +6,13 @@ function Solve(value) {
 
 function Result() {
     try {
-        if (display.value === "") return;
-
+        if (display.value.trim() === "") return;
         display.value = eval(display.value);
-    } catch {
+    } catch (error) {
         display.value = "Error";
-
         setTimeout(() => {
             display.value = "";
-        }, 1200);
+        }, 1000);
     }
 }
 
@@ -26,9 +24,11 @@ function Back() {
     display.value = display.value.slice(0, -1);
 }
 
-document.addEventListener("keydown", (e) => {
+// Keyboard Support
+document.addEventListener("keydown", function (e) {
 
-    if (!isNaN(e.key) || "+-*/.%".includes(e.key)) {
+    if ((e.key >= "0" && e.key <= "9") ||
+        ["+", "-", "*", "/", "%", "."].includes(e.key)) {
         display.value += e.key;
     }
 
@@ -38,6 +38,7 @@ document.addEventListener("keydown", (e) => {
     }
 
     if (e.key === "Backspace") {
+        e.preventDefault();
         Back();
     }
 
