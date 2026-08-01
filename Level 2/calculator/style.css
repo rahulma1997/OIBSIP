@@ -20,7 +20,7 @@ padding:20px;
 
 .main{
 
-width:100%;
+ width:min(95vw,420px);
 max-width:360px;
 
 background:rgba(255,255,255,.15);
