@@ -1,17 +1,47 @@
-function Solve(val) {
-    var v = document.getElementById('res');
-    v.value += val;
- }
- function Result() {
-    var num1 = document.getElementById('res').value;
-    var num2 = eval(num1);
-    document.getElementById('res').value = num2;
- }
- function Clear() {
-    var inp = document.getElementById('res');
-    inp.value = '';
- }
- function Back() {
-    var ev = document.getElementById('res');
-    ev.value = ev.value.slice(0,-1);
- }
+const display = document.getElementById("res");
+
+function Solve(value) {
+    display.value += value;
+}
+
+function Result() {
+    try {
+        if (display.value === "") return;
+
+        display.value = eval(display.value);
+    } catch {
+        display.value = "Error";
+
+        setTimeout(() => {
+            display.value = "";
+        }, 1200);
+    }
+}
+
+function Clear() {
+    display.value = "";
+}
+
+function Back() {
+    display.value = display.value.slice(0, -1);
+}
+
+document.addEventListener("keydown", (e) => {
+
+    if (!isNaN(e.key) || "+-*/.%".includes(e.key)) {
+        display.value += e.key;
+    }
+
+    if (e.key === "Enter") {
+        e.preventDefault();
+        Result();
+    }
+
+    if (e.key === "Backspace") {
+        Back();
+    }
+
+    if (e.key === "Escape") {
+        Clear();
+    }
+});
